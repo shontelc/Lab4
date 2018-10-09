@@ -34,6 +34,8 @@ public class Sudoku extends LatinSquare {
 	 */
 
 	private int iSqrtSize;
+	
+	private java.util.HashMap<Integer,Integer> myHashMap = new java.util.HashMap(); //TODO change reference variable name
 
 	/**
 	 * Sudoku - for Lab #2... do the following:
@@ -76,7 +78,8 @@ public class Sudoku extends LatinSquare {
 	 *             will be thrown if the length of the puzzle do not have a whole
 	 *             number square root
 	 */
-	public Sudoku(int[][] puzzle) throws Exception {
+	public Sudoku(int[][] puzzle) throws Exception 
+	{//TODO add setCells() and fillRemaining() to constructor
 		super(puzzle);
 		this.iSize = puzzle.length;
 		double SQRT = Math.sqrt(iSize);
@@ -411,6 +414,21 @@ public class Sudoku extends LatinSquare {
 		}
 	}
 	
+	public java.util.HashSet getAllValidCellValues(int iCol, int iRow) //TODO implement getAllValidCellValues
+	{
+		return null;
+	}
+	
+	public void setCells() //TODO implement setCells()
+	{
+		
+	}
+	
+	public void fillRemaining(Cell c) //TODO implement fillRemaining(Cell)
+	{
+		
+	}
+	
 	private class Cell
 	{
 		private int iRow;
@@ -418,5 +436,62 @@ public class Sudoku extends LatinSquare {
 		java.util.ArrayList<Integer> isValidValues = new java.util.ArrayList();
 		
 		
+		public int getiRow() 
+		{
+			return iRow;
+		}
+		public int getiCol() 
+		{
+			return iCol;
+		}
+		
+		public void hashCode(int iCol, int iRow) //TODO implement hashCode
+		{
+			
+		}
+		
+		@Override
+		public boolean equals(Object obj) //TODO implement equals
+		{
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Cell other = (Cell) obj;
+			if (!getOuterType().equals(other.getOuterType()))
+				return false;
+			if (iCol != other.iCol)
+				return false;
+			if (iRow != other.iRow)
+				return false;
+			return true;
+		}
+		
+		private Sudoku getOuterType() //TODO idk what this is
+		{
+			return Sudoku.this;
+		}
+		
+		public void getIsValidValues() //TODO implement getIsValidValues
+		{
+			
+		}
+		
+		public void setIsValidValues() //TODO implement setIsValidValues
+		{
+			
+		}
+		
+		public void shuffleValidValues() //TODO implement shuffleValidValues
+		{
+			
+		}
+		
+		public void getNextCell(Cell c) //TODO implement getNextCell
+		{
+			
+		}
 	}
 }
