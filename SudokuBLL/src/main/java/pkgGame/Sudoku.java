@@ -35,7 +35,7 @@ public class Sudoku extends LatinSquare {
 
 	private int iSqrtSize;
 	
-	private java.util.HashMap<Integer,Integer> myHashMap = new java.util.HashMap(); //TODO change reference variable name
+	private java.util.HashMap<Integer,Integer> cells = new java.util.HashMap();
 
 	/**
 	 * Sudoku - for Lab #2... do the following:
@@ -436,6 +436,12 @@ public class Sudoku extends LatinSquare {
 		java.util.ArrayList<Integer> isValidValues = new java.util.ArrayList();
 		
 		
+		public Cell(int iCol, int iRow) 
+		{
+			this.iCol = iCol; 
+			this.iRow = iRow; 
+		}
+		
 		public int getiRow() 
 		{
 			return iRow;
@@ -445,33 +451,18 @@ public class Sudoku extends LatinSquare {
 			return iCol;
 		}
 		
-		public void hashCode(int iCol, int iRow) //TODO implement hashCode
+		@Override
+		public int hashCode() 
 		{
-			
+			return java.util.Objects.hash(iCol, iRow);
 		}
 		
 		@Override
-		public boolean equals(Object obj) //TODO implement equals
+		public boolean equals(Object o)
 		{
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			Cell other = (Cell) obj;
-			if (!getOuterType().equals(other.getOuterType()))
-				return false;
-			if (iCol != other.iCol)
-				return false;
-			if (iRow != other.iRow)
-				return false;
-			return true;
-		}
-		
-		private Sudoku getOuterType() //TODO idk what this is
-		{
-			return Sudoku.this;
+			Cell c1 = (Cell)o;
+			
+			return (c1.iCol == this.iCol) && (c1.iRow == this.iRow);
 		}
 		
 		public void getIsValidValues() //TODO implement getIsValidValues
@@ -489,8 +480,18 @@ public class Sudoku extends LatinSquare {
 			
 		}
 		
-		public void getNextCell(Cell c) //TODO implement getNextCell
+		public Sudoku.Cell getNextCell(Sudoku.Cell c) //TODO implement getNextCell
 		{
+			if (iCol + 1 <= iSqrtSize)
+			{
+				return new Cell(iCol + 1, iRow);
+			}
+			else if ()
+			{
+				
+			}
+			
+			return null;
 			
 		}
 	}
