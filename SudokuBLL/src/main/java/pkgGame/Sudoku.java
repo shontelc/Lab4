@@ -1,6 +1,7 @@
 package pkgGame;
 
 import java.security.SecureRandom;
+import java.util.Collections;
 import java.util.Random;
 
 import pkgHelper.LatinSquare;
@@ -35,7 +36,7 @@ public class Sudoku extends LatinSquare {
 
 	private int iSqrtSize;
 	
-	private java.util.HashMap<Integer,Integer> cells = new java.util.HashMap();
+	private java.util.HashMap<Integer,Cell> cells = new java.util.HashMap();
 
 	/**
 	 * Sudoku - for Lab #2... do the following:
@@ -414,7 +415,7 @@ public class Sudoku extends LatinSquare {
 		}
 	}
 	
-	public java.util.HashSet<java.lang.Integer> getAllValidCellValues(int iCol, int iRow) //TODO implement getAllValidCellValues
+	private java.util.HashSet<java.lang.Integer> getAllValidCellValues(int iCol, int iRow) //TODO implement getAllValidCellValues
 	{
 		return null;
 	}
@@ -472,15 +473,12 @@ public class Sudoku extends LatinSquare {
 		
 		public void setLstValidValues(java.util.ArrayList<java.lang.Integer> hsValidValues)
 		{
-			for (int i : hsValidValues)
-			{
-				this.lstValidValues.add(hsValidValues.get((Integer)i));
-			}
+			lstValidValues = new java.util.ArrayList<Integer>(hsValidValues);
 		}
 		
-		public void shuffleValidValues() //TODO implement shuffleValidValues
+		public void shuffleValidValues() 
 		{
-			
+			Collections.shuffle(lstValidValues);
 		}
 		
 		public Sudoku.Cell getNextCell(Sudoku.Cell c) 
