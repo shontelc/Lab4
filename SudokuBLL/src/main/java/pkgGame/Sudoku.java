@@ -414,7 +414,7 @@ public class Sudoku extends LatinSquare {
 		}
 	}
 	
-	public java.util.HashSet getAllValidCellValues(int iCol, int iRow) //TODO implement getAllValidCellValues
+	public java.util.HashSet<java.lang.Integer> getAllValidCellValues(int iCol, int iRow) //TODO implement getAllValidCellValues
 	{
 		return null;
 	}
@@ -433,7 +433,7 @@ public class Sudoku extends LatinSquare {
 	{
 		private int iRow;
 		private int iCol; 
-		java.util.ArrayList<Integer> isValidValues = new java.util.ArrayList();
+		java.util.ArrayList<Integer> lstValidValues = new java.util.ArrayList();
 		
 		
 		public Cell(int iCol, int iRow) 
@@ -465,14 +465,17 @@ public class Sudoku extends LatinSquare {
 			return (c1.iCol == this.iCol) && (c1.iRow == this.iRow);
 		}
 		
-		public void getIsValidValues() //TODO implement getIsValidValues
+		public java.util.ArrayList<java.lang.Integer> getLstValidValues() 
 		{
-			
+			return lstValidValues; 
 		}
 		
-		public void setIsValidValues() //TODO implement setIsValidValues
+		public void setLstValidValues(java.util.ArrayList<java.lang.Integer> hsValidValues)
 		{
-			
+			for (int i : hsValidValues)
+			{
+				this.lstValidValues.add(hsValidValues.get((Integer)i));
+			}
 		}
 		
 		public void shuffleValidValues() //TODO implement shuffleValidValues
@@ -480,19 +483,20 @@ public class Sudoku extends LatinSquare {
 			
 		}
 		
-		public Sudoku.Cell getNextCell(Sudoku.Cell c) //TODO implement getNextCell
+		public Sudoku.Cell getNextCell(Sudoku.Cell c) 
 		{
-			if (iCol + 1 <= iSqrtSize)
+			if (iCol + 1 <= iSize - 1)
 			{
 				return new Cell(iCol + 1, iRow);
 			}
-			else if ()
+			else if (iRow + 1 > iSize - 1)
 			{
-				
+				return null; 
 			}
-			
-			return null;
-			
+			else
+			{
+				return new Cell(0, iRow + 1);
+			}			
 		}
 	}
 }

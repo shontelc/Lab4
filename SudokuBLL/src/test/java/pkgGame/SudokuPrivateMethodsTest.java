@@ -9,6 +9,8 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
+import javafx.scene.control.Cell;
+
 public class SudokuPrivateMethodsTest {
 
 	private void PrintStars() {
@@ -16,7 +18,7 @@ public class SudokuPrivateMethodsTest {
 			System.out.print("*");
 		System.out.println();
 	}
-
+	/*
 	@Test
 	public void Sudoku_Test_SetRegion() {
 
@@ -122,6 +124,46 @@ public class SudokuPrivateMethodsTest {
 		} catch (InvocationTargetException e) {
 			fail("InvocationTargetException, Invalid size");
 		}
-
+		
 	}
+	*/
+	
+	/*
+	@Test
+	public void CellgetNextCell_Test1() 
+	{
+		try
+		{
+			Class<?> c = Class.forName("pkgGame.Sudoku.Cell");
+			Constructor constructor = c.getConstructor(new Class[] {int.class});
+			constructor.setAccessible(true);
+			
+			Cell cell = new Cell();
+			
+			int iCol = 3; 
+			int iRow = 1;
+			cell = (Cell)constructor.newInstance(iCol, iRow);
+			
+			Method mgetNextCell = c.getDeclaredMethod("getNextCell", null);
+			
+			mgetNextCell.invoke(cell, null);
+			
+		} catch (ClassNotFoundException e1) {
+			fail("ClassNotFoundException");
+		} catch (NoSuchMethodException e) {
+			fail("NoSuchMethodException");
+		} catch (SecurityException e) {
+
+			fail("SecurityException");
+		} catch (InstantiationException e) {
+			fail("InstantiationException");
+		} catch (IllegalAccessException e) {
+			fail("IllegalAccessException");
+		} catch (IllegalArgumentException e) {
+			fail("IllegalArgumentException");
+		} catch (InvocationTargetException e) {
+			fail("InvocationTargetException, Invalid size");
+		}
+		
+	}*/
 }
