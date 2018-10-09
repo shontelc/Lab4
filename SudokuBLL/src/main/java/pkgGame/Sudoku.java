@@ -410,4 +410,13 @@ public class Sudoku extends LatinSquare {
 			ar[i] = a;
 		}
 	}
+	
+	private class Cell
+	{
+		private int iRow;
+		private int iCol; 
+		java.util.ArrayList<Integer> isValidValues = new java.util.ArrayList();
+		
+		
+	}
 }
